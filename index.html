@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 2
+  </title>
+</head>
+
+<body>
+
+  <div id="game">
+
+    <h1 id="inst-txt">Choose r (for ROCK) s (for SCISSORS) p (for PAPER) </h1>
+    <p id="userc-txt"></p>
+    <p id="compc-txt"></p>
+    <p id="wins-txt"></p>
+    <p id="lost-txt"></p>
+    <p id="ties-txt"></p>
+  </div>
+
+  <script type="text/javascript">
+
+    // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+    var computerChoices = ["r", "p", "s"];  
+    var ties = 0;
+    var userw = 0;
+    var compw = 0;
+    
+    // This function is run whenever the user presses a key.
+    document.onkeyup = function (event) {
+
+    
+    
+        
+           
+
+    
+
+      // Determines which key was pressed.
+      var userc = event.key;
+    
+      // Randomly chooses a choice from the options array. This is the Computer's guess.
+      var random=Math.random ();
+      console.log (random);
+      console.log (computerChoices.length);
+      console.log (random * computerChoices.length);
+      console.log (Math.floor(random * computerChoices.length));
+      var compc = computerChoices[Math.floor(Math.random () * computerChoices.length)];
+      
+      
+        document.getElementById("inst-txt").innerHTML="Playing"; 
+      
+
+        if ((userc === "r") || (userc == "s") || (userc == "p")){ 
+      //Alerts the key the user pressed (userGuess)
+        if (userc=="r"){
+            alert("You are playing with: " + userc + " for ROCK");
+        }
+            else if (userc=="s"){
+                alert("You are playing with: " + userc + " for SCISSORS");
+            }
+                else {
+                    alert("You are playing with: " + userc + " for PAPER");
+                }
+        
+      
+      
+
+      //Alerts the Computer's guess.
+      
+        if (compc=="r"){
+            alert("Computer is playing with: " + compc + " for ROCK");
+        }
+            else if (compc=="s"){
+                alert("Computer is playing with: " + compc + " for SCISSORS");
+            }
+                else {
+                    alert("Computer is playing with: " + compc + " for PAPER");
+                }
+      
+
+
+
+
+        if (userc == compc) {
+        alert("It is a tie");
+        ties++;
+        }
+        else if ((userc == "r" && compc == "s")|| (userc == "s" && compc == "p") || (userc == "p" && compc == "r")){
+                alert("You Win");
+                userw++;
+                }
+                else {
+                    alert("You Loose");
+                    compw++;
+                    }
+                    document.getElementById("inst-txt").innerHTML="Choose again";
+                                      
+document.getElementById("userc-txt").innerHTML= "You Chose: " + userc;
+document.getElementById("compc-txt").innerHTML= "Computer Chose: " +compc;
+document.getElementById("wins-txt").innerHTML="Wins: " + userw;
+document.getElementById("lost-txt").innerHTML="Looses: " + compw;
+document.getElementById("ties-txt").innerHTML="Ties: " + ties;      
+          }
+    
+else {
+        alert("Incorrect choice try again");
+      
+      
+      }
+      
+       
+       
+
+//alert("Hit enter and Chose again");
+
+   
+    };
+
+    
+
+  </script>
+
+</body>
+
+</html>

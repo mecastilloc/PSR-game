@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 2
+  </title>
+</head>
+
+<body>
+
+  <div id="game">
+
+    <h1 id="inst-txt">choose r s p </h1>
+    <p id="userc-txt"></p>
+    <p id="compc-txt"></p>
+    <p id="wins-txt"></p>
+    <p id="lost-txt"></p>
+    <p id="ties-txt"></p>
+  </div>
+
+  <script type="text/javascript">
+
+    // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+    var computerChoices = ["r", "p", "s"];
+    var userctxt = document.getElementById("userc-txt");
+    var instrtxt = document.getElementById("inst-txt");
+    var compctxt = document.getElementById("compc-txt");
+    var winstxt = document.getElementById("wins-txt");
+    var losttxt= document.getElementById("lost-txt");
+    var tiestxt = document.getElementById("userc-txt");
+    var ties = 0;
+    var userw = 0;
+    var compw = 0;
+
+    // This function is run whenever the user presses a key.
+    document.onkeyup = function (event) {
+
+
+
+
+      // Determines which key was pressed.
+      var userc = event.key;
+
+      // Randomly chooses a choice from the options array. This is the Computer's guess.
+      var compc = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+      if ((userc === "r") || (userc == "s") || (userc == "p")){
+      //Alerts the key the user pressed (userGuess)
+      alert("You are playing with: " + userc);
+
+      //Alerts the Computer's guess.
+      alert("Computer is playing with: " + compc);
+
+      
+
+        if (userc == compc) {
+        alert("It is a tie");
+        ties++;
+        }
+        else if ((userc == "r" && compc == "s")|| (userc == "s" && compc == "p") || (userc == "p" && compc == "r")){
+                alert("You Win");
+                userw++;
+                }
+                else {
+                    alert("You Loose");
+                    compw++;
+                    }
+          }
+    
+else {
+        alert("Incorrect choice try again");
+      
+      
+      }
+
+instrtxt.textContent = "";
+winstxt.textContent = "Wins: " + userw;
+losttxt.textContent = "Looses: " + compw;
+tiestxt.textContent = "Ties: " + ties;
+alert("Hit enter and Chose again");
+
+   
+    };
+
+
+
+  </script>
+
+</body>
+
+</html>
